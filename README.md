@@ -64,4 +64,18 @@ cd target/debug
 ./simple_async_client -c 127.0.0.1:4433
 ```
 
+You can customize the client with command line options:
+
+```shell
+./simple_async_client -c 127.0.0.1:4433 --log-level DEBUG --idle-timeout 10000 --qlog-file client.qlog
+```
+
+Available options include:
+- `-c, --connect-to`: Server address to connect to
+- `--log-level`: Log level (OFF/ERROR/WARN/INFO/DEBUG/TRACE)
+- `--idle-timeout`: Connection idle timeout in microseconds
+- `--session-file`: File used for session resumption
+- `--keylog-file`: Save TLS key log into the given file
+- `--qlog-file`: Save QUIC qlog into the given file
+
 The async server and client implementations use Tokio for asynchronous I/O operations, providing better scalability for handling multiple connections.
